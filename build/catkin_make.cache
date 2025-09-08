@@ -1,2 +1,0 @@
-ae86_bringup:ae86_description
--DCATKIN_DEVEL_PREFIX=/home/mostafa/task12_1/devel -DCMAKE_INSTALL_PREFIX=/home/mostafa/task12_1/install -G Unix Makefiles

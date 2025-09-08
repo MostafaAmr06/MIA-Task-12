@@ -1,6 +1,7 @@
+# MIA-Task-12 
 
-# MIA-Task-12
+## General
+Hello MIA this is Mostafa. This is my solution for Task 12 - 3 
 
-## LAUNCH
-
-use ***cd /home/mostafa/task12_1 && source devel/setup.bash && roslaunch ae86_bot_bringup ae86.launch*** to launch
+## Run:
+- python3 task12.py

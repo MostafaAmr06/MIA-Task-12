@@ -1,0 +1,21 @@
+<launch>
+  <!-- Load robot_description from Xacro -->
+  <param name="robot_description" command="$(find xacro)/xacro $(find ae86_bot_description)/urdf/ae86_bot.xacro"/>
+
+  <!-- State publishers -->
+  <arg name="use_gui" default="true"/>
+  <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" output="screen" unless="$(arg use_gui)"/>
+  <node pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" name="joint_state_publisher_gui" output="screen" if="$(arg use_gui)"/>
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen"/>
+
+  <!-- Gazebo empty world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+
+  <!-- Spawn the robot into Gazebo -->
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_ae86_bot" args="-param robot_description -urdf -model ae86_bot" output="screen"/>
+
+  <!-- RViz with preset config -->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find ae86_bot_bringup)/rviz/ae86.rviz"/>
+</launch>
+
+
